@@ -10,9 +10,6 @@ public class arrayToString{
 
   }
 
-
-
-
   public static boolean sameArray(int[] ary1, int[] ary2){
     boolean isTrue = false;
     if (ary1.length == ary2.length){
@@ -31,7 +28,6 @@ public class arrayToString{
     }
   }
 
-
   public static String arrayToString (int[] nums){
     String s = "[";
     for (int i = 0; i < nums.length; i++){
@@ -42,4 +38,12 @@ public class arrayToString{
     }
     return s + "]";
   }
+}
+
+public static int[] returnCopy(int[]ary) {
+
+}
+
+public static int[] concatArray(int[]ary1,int[]ary2){
+
 }
