@@ -21,7 +21,7 @@ public class arrayToString{
           isTrue = true;
         }
         else {
-          isTrue = false;
+          return false;
         }
       }
       return isTrue;
