@@ -20,7 +20,13 @@ public class arrayToString{
     System.out.println(returnCopy(copyTest));
     System.out.println(turnArrayToString(copyTest));
     System.out.println(turnArrayToString(returnCopy(copyTest)));
-    // 
+    // concatArray method test cases
+    int[] concat1 = new int[]{-10, 10 , 1227, 0 , 25};
+    int[] concat2 = new int[]{-10, 10 , 1227, 0 , 25};
+    System.out.println(turnArrayToString(concatArray(concat1, concat2)));
+    concat1 = new int[]{-10123, 10123 , 12237, 02 , 25};
+    concat2 = new int[]{-10, 10 , 1227, 0 , 2545};
+    System.out.println(turnArrayToString(concatArray(concat1, concat2)));
 
   }
 
