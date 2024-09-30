@@ -10,6 +10,7 @@ public class ArrayMethods{
     System.out.println(arrToString(new int[]{3,6,9,10}));
     System.out.println(arrToString(new int[][]{{3,5,6,7},{3,3,2},{5,4},{4}}));
     System.out.println(arr2DSum(new int[][]{{3,5,6,7},{3,3,2},{5,4},{4}}));
+    System.out.println(swapRC(new int[][]{{1,2,3},{4,5,6}})); // should return {{1,4},{2,5},{3,6}}
   }
 
 
@@ -62,6 +63,12 @@ public class ArrayMethods{
     * e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
     */
   public static int[][] swapRC(int[][]nums){
-    return new int[1][1];
+    int[][] arr = new int[nums[0].length][nums.length];
+    for (int i = 0; i < nums.length; i++){
+      for (int x = 0; i < nums[0].length; x++){
+        arr[x][i] = nums[i][x];
+      }
+    }
+    return arr;
   }
 }
