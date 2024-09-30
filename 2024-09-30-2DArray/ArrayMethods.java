@@ -8,7 +8,11 @@
 public class ArrayMethods{
   public static void main(String[] args) {
     System.out.println(arrToString(new int[]{3,6,9,10}));
+    System.out.println(arrToString(new int[][]{{3,5,6,7},{3,3,2},{5,4},{4}}));
+    System.out.println(arr2DSum(new int[][]{{3,5,6,7},{3,3,2},{5,4},{4}}));
   }
+
+
   public static String arrToString(int[]nums){
     String s = "[";
     for (int i = 0; i < nums.length; i++){
@@ -30,9 +34,27 @@ public class ArrayMethods{
     */
   public static String arrToString(int[][]ary){
     //this should use arrToString(int[])
-    return "";
+    String newArray = "[";
+    for (int i = 0; i < ary.length; i++){
+      newArray += arrToString(ary[i]);
+      if (i < ary.length - 1){
+        newArray += ", ";
+      }
+    }
+    return newArray + "]";
   }
 
+/*     Return the sum of all of the values in the 2D array */
+    public static int arr2DSum(int[][]nums){
+      //use a nested loop to solve this
+      int sum = 0;
+      for (int i = 0 ; i < nums.length; i++){
+        for (int x = 0; x < nums[i].length; x++){
+          sum += nums[i][x];
+        }
+      }
+      return sum;//place holder return value so it compiles.
+    }
 
 
   /**Rotate an array by returning a new array with the rows and columns swapped.
