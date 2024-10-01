@@ -15,6 +15,7 @@ public class ArrayMethods{
     System.out.println(arr2DSum(new int[][]{{3,5,6,7},{3,3,2,4},{5,4,1,4}})); // rectangluar array, works
     System.out.println(arr2DSum(new int[][]{{3,5,6,7},{3,3,2,4},{5,4,1,4},{}})); // adds empty array, works
     System.out.println(arrToString(swapRC(new int[][]{{1,2,3},{4,5,6}}))); // should return {{1,4},{2,5},{3,6}}
+    System.out.println(arrToString(swapRC(new int[][]{{1,4},{2,5},{3,6}}))); // should return {{1,2,3},{4,5,6}}
   }
 
   public static String arrToString(int[]nums){
