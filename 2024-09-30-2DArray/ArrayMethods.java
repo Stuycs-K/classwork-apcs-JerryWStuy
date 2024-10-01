@@ -7,12 +7,15 @@
 */
 public class ArrayMethods{
   public static void main(String[] args) {
-    System.out.println(arrToString(new int[]{3,6,9,10}));
-    System.out.println(arrToString(new int[][]{{3,5,6,7},{3,3,2},{5,4},{4}}));
-    System.out.println(arr2DSum(new int[][]{{3,5,6,7},{3,3,2},{5,4},{4}}));
-    System.out.println(swapRC(new int[][]{{1,2,3},{4,5,6}})); // should return {{1,4},{2,5},{3,6}}
+    System.out.println(arrToString(new int[]{2, 3, 4, 9}));
+    System.out.println(arrToString(new int[][]{{3,5,6,7},{3,3,2},{5,4},{4}})); // jagged array, works
+    System.out.println(arrToString(new int[][]{{3,5,6,7},{3,3,2,4},{5,4,1,4}})); // rectangluar array, works
+    System.out.println(arrToString(new int[][]{{3,5,6,7},{3,3,2,4},{5,4,1,4},{}})); // adds empty array, works
+    System.out.println(arr2DSum(new int[][]{{3,5,6,7},{3,3,2},{5,4},{4}})); //jagged array, works
+    System.out.println(arr2DSum(new int[][]{{3,5,6,7},{3,3,2,4},{5,4,1,4}})); // rectangluar array, works
+    System.out.println(arr2DSum(new int[][]{{3,5,6,7},{3,3,2,4},{5,4,1,4},{}})); // adds empty array, works
+    System.out.println(arrToString(swapRC(new int[][]{{1,2,3},{4,5,6}}))); // should return {{1,4},{2,5},{3,6}}
   }
-
 
   public static String arrToString(int[]nums){
     String s = "[";
@@ -64,9 +67,9 @@ public class ArrayMethods{
     */
   public static int[][] swapRC(int[][]nums){
     int[][] arr = new int[nums[0].length][nums.length];
-    for (int i = 0; i < nums.length; i++){
-      for (int x = 0; i < nums[0].length; x++){
-        arr[x][i] = nums[i][x];
+    for (int i = 0; i < nums[0].length; i++){
+      for (int x = 0; x < nums.length; x++){
+        arr[i][x] = nums[x][i];
       }
     }
     return arr;
