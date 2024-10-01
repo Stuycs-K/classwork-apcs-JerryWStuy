@@ -103,11 +103,18 @@ public static void replaceNegative(int[][] vals){
 //When testing : make sure that changing the original does NOT change the copy.
 //DO NOT use any built in methods that "copy" an array.
 //You SHOULD write a helper method for this.
+public static int[] returnCopy(int[]ary) {
+  int[] array = new int[ary.length];
+  for (int i = 0; i < ary.length; i++){
+    array[i] = ary[i];
+  }
+  return array;
+}
 //If you don't see a good way to do that, you should stop and look at prior methods.
 public static int[][] copy(int[][] nums){
   int[][] newArr = new int[nums.length][];
   for (int i = 0; i < nums.length; i++){
-    for (int x )
+    newArr[i] = returnCopy(nums[i]);
   }
-  return null;//placeholder so it compiles
+  return newArr;//placeholder so it compiles
 }
