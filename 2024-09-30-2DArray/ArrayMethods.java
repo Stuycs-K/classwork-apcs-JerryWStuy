@@ -17,6 +17,13 @@ public class ArrayMethods{
     System.out.println(arrToString(swapRC(new int[][]{{1,2,3},{4,5,6}}))); // should return {{1,4},{2,5},{3,6}}
     System.out.println(arrToString(swapRC(new int[][]{{1,4},{2,5},{3,6}}))); // should return {{1,2,3},{4,5,6}}
     replaceNegative(new int[][]{{1,-4},{2,-5},{-3,6}});
+    System.out.println(arrToString(copy(new int[][]{{1,4},{2,5},{3,6}})));
+    int [][] copyTest = new int[][] {{-5, 67, 1230}, {-1234, 1227, 1227}, {-5, 7, 8 , 9 , 0}};
+    System.out.println(sameArray(copyTest, copy(copyTest))); //Worked
+    System.out.println(copyTest);
+    System.out.println(copy(copyTest));
+    System.out.println(arrToString(copyTest));
+    System.out.println(arrToString(copy(copyTest)));
   }
 
   public static String arrToString(int[]nums){
@@ -103,12 +110,35 @@ public static void replaceNegative(int[][] vals){
 //When testing : make sure that changing the original does NOT change the copy.
 //DO NOT use any built in methods that "copy" an array.
 //You SHOULD write a helper method for this.
+
+// Helper method in question
 public static int[] returnCopy(int[]ary) {
   int[] array = new int[ary.length];
   for (int i = 0; i < ary.length; i++){
     array[i] = ary[i];
   }
   return array;
+}
+
+//Tests if its a copy and NOT the same array
+public static boolean sameArray(int[][] ary1, int[][] ary2){
+  boolean isTrue = false;
+  if (ary1.length == ary2.length){
+    for (int i = 0; i < ary1.length; i++){
+      for (int x = 0; x < ary1[i].length; x++){
+        if (ary1[i] == ary2[i]){
+          isTrue = true;
+        }
+        else {
+          return false;
+        }
+      }
+    }
+    return isTrue;
+  }
+  else{
+    return false;
+  }
 }
 //If you don't see a good way to do that, you should stop and look at prior methods.
 public static int[][] copy(int[][] nums){
@@ -117,4 +147,5 @@ public static int[][] copy(int[][] nums){
     newArr[i] = returnCopy(nums[i]);
   }
   return newArr;//placeholder so it compiles
+}
 }
