@@ -6,6 +6,8 @@ public class ArrayDemo{
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
     System.out.println(countZeros2D(new int[][]{{132,1,132,12312,0,0},{123,45,50,87,0}}));
+    System.out.println(countZeros2D(new int[][]{{132,1,132,12312,0,0},{123,45,50,87,0}}));
+    replaceNegative(new int[][]{{3,4,5,6,-7,-12,-90},{0,-5,-5,-5,-5}});
 
   }
 
@@ -52,7 +54,13 @@ public class ArrayDemo{
   /*Return the sum of all of the values in the 2D array
    *Use a nested loop instead of a helper method*/
   public static int arr2DSum(int[][]nums){
-    return 0;
+    int sum = 0;
+    for (int i = 0 ; i < nums.length; i++){
+      for (int x = 0; x < nums[i].length; x++){
+        sum += nums[i][x];
+      }
+    }
+     return sum;
   }
 
   //3. Modify a given 2D array of integer as follows:
@@ -61,7 +69,19 @@ public class ArrayDemo{
   //that negative with the value 1
   //-All other negatives replace with 0
   public static void replaceNegative(int[][] vals){
-
+    for (int i = 0 ; i < vals.length; i++){
+      for (int x = 0; x < vals[i].length; x++){
+        if (vals[i][x] < 0){
+          if (i == x){
+            vals[i][x] = 1;
+          }
+          else {
+            vals[i][x] = 0;
+          }
+        }
+      }
+    }
+    System.out.println(Arrays.toString(vals));
   }
 
   //4. Make a copy of the given 2d array.
