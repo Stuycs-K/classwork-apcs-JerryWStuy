@@ -5,6 +5,7 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
+    System.out.println(countZeros2D(new int[][]{{132,1,132,12312,0,0},{123,45,50,87,0}}));
 
   }
 
@@ -38,7 +39,7 @@ public class ArrayDemo{
   public static int countZeros2D(int[][] nums){
     int zeroes = 0;
     for (int i = 0; i < nums.length; i++){
-      for (int x = 0; x < nums[i].length; i++){
+      for (int x = 0; x < nums[i].length; x++){
         if (nums[i][x] == 0){
           zeroes++;
         }
