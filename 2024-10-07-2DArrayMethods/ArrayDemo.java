@@ -6,8 +6,11 @@ public class ArrayDemo{
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
     System.out.println(countZeros2D(new int[][]{{132,1,132,12312,0,0},{123,45,50,87,0}}));
-    System.out.println(countZeros2D(new int[][]{{132,1,132,12312,0,0},{123,45,50,87,0}}));
+    System.out.println(countZeros2D(new int[][]{{132,1,132,0,0,0,0},{123,45,50,87,0}}));
     replaceNegative(new int[][]{{3,4,5,6,-7,-12,-90},{0,-5,-5,-5,-5}});
+    int[][] testForSame = new int[][]{{132,1,132,0,0,0,0},{123,45,50,87,0}};
+    System.out.println(testForSame == copy(testForSame));
+    System.out.println(arrToString(copy(testForSame)));
 
   }
 
@@ -81,7 +84,7 @@ public class ArrayDemo{
         }
       }
     }
-    System.out.println(Arrays.toString(vals));
+    System.out.println(arrToString(vals));
   }
 
   //4. Make a copy of the given 2d array.
@@ -90,7 +93,14 @@ public class ArrayDemo{
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
   public static int[][] copy(int[][] nums){
-    return new int[1][1];
+    int[][] newArr = new int [nums.length][];
+    for (int i = 0; i < nums.length; i++){
+      newArr[i] = new int[nums[i].length];
+      for (int x = 0; x < nums[i].length; x++){
+        newArr[i][x] = nums[i][x];
+      }
+    }
+    return newArr;
   }
 
   //5. Rotate an array by returning a new array with the rows and columns swapped.
