@@ -11,6 +11,7 @@ public class ArrayDemo{
     int[][] testForSame = new int[][]{{132,1,132,0,0,0,0},{123,45,50,87,0}};
     System.out.println(testForSame == copy(testForSame));
     System.out.println(arrToString(copy(testForSame)));
+    System.out.println(htmlTable(new int[][]{{1,2},{3}}));
 
   }
 
@@ -107,7 +108,13 @@ public class ArrayDemo{
   //   You may assume the array is rectangular and neither rows nor cols is 0.
   //   e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
   public static int[][] swapRC(int[][]nums){
-    return new int[1][1];
+    int[][] arr = new int[nums[0].length][nums.length];
+    for (int i = 0; i < nums[0].length; i++){
+      for (int x = 0; x < nums.length; x++){
+        arr[i][x] = nums[x][i];
+      }
+    }
+    return arr;
   }
 
   //6. Make an HTML table by putting a table tag around the entire 2d array,
@@ -117,6 +124,16 @@ public class ArrayDemo{
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+    String table = "<table>";
+    for (int i = 0; i < nums.length; i++){
+      table += "<tr>";
+      for (int x = 0; x < nums[i].length; x++){
+        table += "<td>";
+        table += Integer.toString(nums[i][x]);
+        table += "</td>";
+      }
+      table += "</tr>";
+    }
+    return table + "</table>";
   }
 }
