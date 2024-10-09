@@ -7,7 +7,8 @@ public class ArrayDemo{
     //do not use any other Arrays.method()
     System.out.println(countZeros2D(new int[][]{{132,1,132,12312,0,0},{123,45,50,87,0}}));
     System.out.println(countZeros2D(new int[][]{{132,1,132,0,0,0,0},{123,45,50,87,0}}));
-    replaceNegative(new int[][]{{3,4,5,6,-7,-12,-90},{0,-5,-5,-5,-5}});
+    System.out.println(countZeros2D(new int[][]{{0,0,0,0},{0}}));
+    replaceNegative(new int[][]{{-3,4,5,6,-7,-12,-90},{0,-5,-5,-5,-5}});
     int[][] testForSame = new int[][]{{132,1,132,0,0,0,0},{123,45,50,87,0}};
     System.out.println(testForSame == copy(testForSame));
     System.out.println(arrToString(copy(testForSame)));
