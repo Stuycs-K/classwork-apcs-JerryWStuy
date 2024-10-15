@@ -13,9 +13,27 @@ public class Demo{
     Point p2 = new Point(-1,-1);
     Point p3 = new Point(3,4);
     System.out.println(new Point(p3));
-    System.out.println( p3);
-    System.out.println( distance(p1,p2));
-    System.out.println( Point.distance(p1,p2));
-    System.out.println( p1.distanceTo(p2));
+    System.out.println(p3);
+    System.out.println(distance(p1,p2));
+    System.out.println(Point.distance(p1,p2));
+    System.out.println(p1.distanceTo(p2));
+    p1 = new Point(3,4);
+    p2 = new Point(-3,-4);
+    p3 = new Point(-5,-6);
+    System.out.println(new Point(p3));
+    System.out.println(p3);
+    System.out.println(distance(p1,p2));
+    System.out.println(Point.distance(p1,p2));
+    System.out.println(p1.distanceTo(p2));
+    Point a = new Point(0,0);
+    Point b = new Point(1,0);
+    Point c = new Point(0.5,Math.sqrt(3.0)/2);
+    System.out.println(distance(a,b));
+    System.out.println(distance(b,c));
+    System.out.println(distance(a,c));
+
+
+
+
   }
 }
