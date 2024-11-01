@@ -8,6 +8,7 @@ public class TriangleTester{
   public static void main(String[] args){
     System.out.println(countTrianglesA("inputTri.txt"));
     System.out.println(countTrianglesB("inputTri.txt"));
+    System.out.println(countTrianglesWithX("inputTriWithX.txt"));
    }
 
 
@@ -108,5 +109,30 @@ public class TriangleTester{
   }
   return temp;
   }
+
+  public static int countTrianglesWithX(String filename){
+    int temp = 0;
+    try {
+      File file = new File(filename);
+      Scanner input = new Scanner(file);
+      while (input.hasNextLine()){
+        String lengths = input.nextLine();
+        String[]nums = lengths.split("x");
+        int[] numsAsInt = new int[nums.length];
+        for (int i = 0; i < nums.length; i++){
+          numsAsInt[i] = Integer.parseInt(nums[i]);
+        }
+        if (triangleExist(numsAsInt[0],numsAsInt[1],numsAsInt[2])){
+          temp++; 
+        }
+      }
+      input.close();
+    } 
+    catch (FileNotFoundException ex) {
+      System.out.println("File not found");
+    }
+    return temp; 
+  }
+
 }
 
