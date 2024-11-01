@@ -1,35 +1,34 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 
 public class TriangleTester{
-   public static void main(String[] args){
-     System.out.println(countTrianglesA("inputTri.txt"));
-     System.out.println(countTrianglesB("inputTri.txt"));
+  public static void main(String[] args){
+    System.out.println(countTrianglesA("inputTri.txt"));
+    System.out.println(countTrianglesB("inputTri.txt"));
    }
 
 
 
-   public static int countTrianglesA(String filename){
+  public static int countTrianglesA(String filename){
     int temp = 0;
-     try {
+    try {
       File file = new File(filename);
       Scanner input = new Scanner(file);
-      while(input.hasNextLine()){
+      while (input.hasNextLine()){
         String lengths = input.nextLine();
         if (triangleExist(lengths)){
-         temp++; 
+          temp++; 
         }
       }
       input.close();
-     } 
-     catch (FileNotFoundException ex) {
+    } 
+    catch (FileNotFoundException ex) {
       System.out.println("File not found");
-     }
-     return temp; 
+    }
+    return temp; 
    }
 
    
@@ -53,7 +52,7 @@ public class TriangleTester{
   }
 
   public static boolean triangleExist(int a, int b, int c) {
-    // Check if the lengths can form a triangle
+    // Check if the lengths form a triangle
     return (a + b > c) && (a + c > b) && (b + c > a);
   }
 
@@ -64,9 +63,9 @@ public class TriangleTester{
     File file = new File(filename);
     Scanner input = new Scanner(file);
 
-    List<Integer> column1 = new ArrayList<>();
-    List<Integer> column2 = new ArrayList<>();
-    List<Integer> column3 = new ArrayList<>();
+    ArrayList<Integer> column1 = new ArrayList<>();
+    ArrayList<Integer> column2 = new ArrayList<>();
+    ArrayList<Integer> column3 = new ArrayList<>();
         
     while (input.hasNextLine()) {
       Scanner lineScanner = new Scanner(input.nextLine());
@@ -83,20 +82,31 @@ public class TriangleTester{
     }
     input.close();
 
-    for (int i = 0; i < column1.size(); i++) {
-      if (i < column2.size() && i < column3.size()) {
-        int a = column1.get(i);
-        int b = column2.get(i);
-        int c = column3.get(i);
-        if (triangleExist(a, b, c)) {
-          temp++;
-        }
+    for (int i = 0; i < column1.size()-2; i+=3) {
+      int a = column1.get(i);
+      int b = column1.get(i+1);
+      int c = column1.get(i+2);
+      if (triangleExist(a, b, c)) {
+        temp++;
+      }
+      a = column2.get(i);
+      b = column2.get(i+1);
+      c = column2.get(i+2);
+      if (triangleExist(a, b, c)) {
+        temp++;
+      }
+      a = column3.get(i);
+      b = column3.get(i+1);
+      c = column3.get(i+2);
+      if (triangleExist(a, b, c)) {
+        temp++;
       }
     }
-    } catch (FileNotFoundException ex) {
-      System.out.println("File not found");
-    }
-    return temp;
+  } 
+  catch (FileNotFoundException ex) {
+    System.out.println("File not found");
+  }
+  return temp;
   }
 }
 
