@@ -8,9 +8,13 @@ public class ReadFile {
   public static void main(String[] args) {
     //2 Opening a file requires a try/catch
     try {
-      File file = new File(ReadFile.java);//1
+      File file = new File("ReadFile.java");//1
       Scanner input = new Scanner(file);
       //CODE THAT SCANS THE FILE.
+      while(input.hasNext()){
+        System.out.println(input.next());
+      }
+      System.out.println(input);
       input.close();//releases the file from your program
 
     } catch (FileNotFoundException ex) {
