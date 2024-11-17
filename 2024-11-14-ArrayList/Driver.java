@@ -4,8 +4,8 @@ import java.util.ArrayList;
 public class Driver{
   public static void main(String args[]){
     ArrayList<String> array1, array2, array3;
-    array1 = ArrayListPractice.createRandomArray(10);
-    array2 = ArrayListPractice.createRandomArray(15);
+    array1 = ArrayListPractice.createRandomArray(5);
+    array2 = ArrayListPractice.createRandomArray(10);
     System.out.println(array1);
     System.out.println(array2);
     ArrayListPractice.replaceEmpty(array1);
