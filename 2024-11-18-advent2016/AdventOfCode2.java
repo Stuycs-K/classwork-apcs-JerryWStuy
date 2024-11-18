@@ -14,31 +14,7 @@ public class AdventOfCode2{
        Scanner input = new Scanner(file);
        while (input.hasNextLine()){
          String movement = input.nextLine();
-         if (movement.substring(0,1).equals("R")){
-           direction += 1;
-         }
-         else{
-           direction -= 1;
-         }
-         if (direction < 0){
-           direction = (4+direction);
-         }
-         else{
-           direction = direction % 4;
-         }
-         if (direction == 0){
-           distanceUp += Integer.parseInt(movement.substring(1,2));
-         }
-         else if (direction == 1){
-           distanceRight += Integer.parseInt(movement.substring(1,2));
-         }
-         else if (direction == 2){
-           distanceUp -= Integer.parseInt(movement.substring(1,2));
-         }
-         else{
-           distanceRight -= Integer.parseInt(movement.substring(1,2));
-         }
-       }
+         
        input.close();
      }
      catch (FileNotFoundException ex) {
