@@ -3,7 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class AdventOfCode7{
-  public static void main(String args[]){
+
+  public static void main(String[] args) {
     System.out.println(validIPs("Advent7.txt"));
   }
 
@@ -17,24 +18,39 @@ public class AdventOfCode7{
           line = line.replace(']',',');
           line = line.replace('[',',');
           String[] parts = line.split(",");
-
-          for (int i = 0; i < line.length; i++){
-            for (int x = 0; x < line[i].length(); x++){
-              if (i % 2 == 0){
-                // if even and ABBA break
-              }
-              else{
-                // if ABBA then +1
-              }
-            }
+          if (evenOrNot(parts)){
+            sum++;
           }
         }
         scanner.close();
-        return 0;
+        return sum;
       }
     catch (FileNotFoundException e) {
       System.out.println("File not found");
       return 0;
     }
+  }
+
+  public static boolean evenOrNot(String[] parts){
+    for (int i = 0; i < parts.length; i++) {
+      boolean isHypernet = (i % 2 != 0);
+      for (int x = 0; x < parts[i].length() - 3; x++) {
+        String segment = parts[i].substring(x, x + 4);
+        if (isABBA(segment)) {
+          if (isHypernet) {
+            return false; 
+          } else {
+            return true; 
+          }
+        }
+      }
+    }
+    return false;
+  }
+
+  public static boolean isABBA(String segment) {
+    return segment.charAt(0) == segment.charAt(3) &&
+           segment.charAt(1) == segment.charAt(2) &&
+           segment.charAt(0) != segment.charAt(1);
   }
 }
