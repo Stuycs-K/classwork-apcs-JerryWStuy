@@ -25,6 +25,10 @@ public class AdventOfCode4 {
                         encryptedName += parts[i];  
                 }
                 if (isRealRoom(encryptedName, checksum)) {
+                    String decryptedName = decryptRoomName(encryptedName, sectorID);
+                    if (decryptedName.contains("north")){
+                        System.out.println("Decrypted Room Name: " + decryptedName + " " + sectorID);
+                    }
                     sumSectorIDs += sectorID;  
                 }
             }
@@ -66,5 +70,14 @@ public class AdventOfCode4 {
             calculatedChecksum += letters[i];  
         }
         return calculatedChecksum.equals(checksum);
+    }
+
+    public static String decryptRoomName(String encryptedName, int sectorID) {
+        String decryptedName = "";
+        for (char c : encryptedName.toCharArray()) {
+            char shiftedChar = (char) ((c - 'a' + sectorID) % 26 + 'a');
+            decryptedName += shiftedChar;
+        }
+        return decryptedName;
     }
 }
