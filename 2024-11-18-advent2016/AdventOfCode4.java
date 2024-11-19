@@ -4,11 +4,11 @@ import java.util.*;
 
 public class AdventOfCode4 {
     public static void main(String[] args) {
-        System.out.println("Sum of sector IDs: " + calculateSectorIDSum("Advent4.txt"));
+        System.out.println(SectorIDSum("Advent4.txt"));
     }
 
-    public static int calculateSectorIDSum(String filename) {
-        int sumSectorIDs = 0;
+    public static int SectorIDSum(String filename) {
+        int sum = 0;
         try {
             File file = new File(filename);
             Scanner scanner = new Scanner(file);
@@ -16,33 +16,32 @@ public class AdventOfCode4 {
                 String line = scanner.nextLine();
                 
                 String[] parts = line.split("-");
-                String sectorAndChecksum = parts[parts.length - 1];
-                int sectorID = Integer.parseInt(sectorAndChecksum.substring(0,3));
-                String checksum = sectorAndChecksum.substring(4,9);
+                String sectorCheck = parts[parts.length - 1];
+                int sectorID = Integer.parseInt(sectorCheck.substring(0,3));
+                String checksum = sectorCheck.substring(4,9);
                 
-                String encryptedName = "";
+                String name = "";
                     for (int i = 0; i < parts.length - 1; i++) {
-                        encryptedName += parts[i];  
+                        name += parts[i];  
                 }
-                if (isRealRoom(encryptedName, checksum)) {
-                    String decryptedName = decryptRoomName(encryptedName, sectorID);
-                    if (decryptedName.contains("north")){
-                        System.out.println("Decrypted Room Name: " + decryptedName + " " + sectorID);
+                if (isRealRoom(name, checksum)) {
+                    if (decryptRoomName(name, sectorID).contains("north")){
+                        System.out.println(decryptRoomName(name, sectorID) + " " + sectorID);
                     }
-                    sumSectorIDs += sectorID;  
+                    sum += sectorID;  
                 }
             }
             scanner.close();
         } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + filename);
+            System.out.println("File not found");
         }
-        return sumSectorIDs;
+        return sum;
     }
 
-    public static boolean isRealRoom(String encryptedName, String checksum) {
+    public static boolean isRealRoom(String name, String checksum) {
         int[] frequency = new int[26];  
-        for (int i = 0; i < encryptedName.length(); i++) {
-            char c = encryptedName.charAt(i);
+        for (int i = 0; i < name.length(); i++) {
+            char c = name.charAt(i);
             frequency[c - 'a']++;
         }
     
@@ -65,19 +64,19 @@ public class AdventOfCode4 {
                 }
             }
         }
-        String calculatedChecksum = "";
+        String calculatedSum = "";
         for (int i = 0; i < 5; i++) {
-            calculatedChecksum += letters[i];  
+            calculatedSum += letters[i];  
         }
-        return calculatedChecksum.equals(checksum);
+        return calculatedSum.equals(checksum);
     }
 
-    public static String decryptRoomName(String encryptedName, int sectorID) {
-        String decryptedName = "";
-        for (char c : encryptedName.toCharArray()) {
+    public static String decryptRoomName(String name, int sectorID) {
+        String finalName = "";
+        for (char c : name.toCharArray()) {
             char shiftedChar = (char) ((c - 'a' + sectorID) % 26 + 'a');
-            decryptedName += shiftedChar;
+            finalName += shiftedChar;
         }
-        return decryptedName;
+        return finalName;
     }
 }
