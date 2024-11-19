@@ -8,7 +8,7 @@ public class AdventOfCode6{
   }
 
   public static String decodeMessage(String filename) {
-    String decodedMessage = "";
+    String message = "";
     ArrayList<String> lines = new ArrayList<>();
     try {
       File file = new File(filename);
@@ -29,19 +29,19 @@ public class AdventOfCode6{
         for (String line : lines) {
           char c = line.charAt(col);  
           frequency[c - 'a']++;
-    }
+        }
 
-    char mostFrequentChar = 'a';  
-    int maxFrequency = frequency[0]; 
+    char mostChar = 'a';  
+    int max = frequency[0]; 
 
     for (int i = 0; i < 26; i++) {  
-      if (frequency[i] > maxFrequency || (frequency[i] == maxFrequency && (char) ('a' + i) < mostFrequentChar)) {
-        mostFrequentChar = (char) ('a' + i);  
-        maxFrequency = frequency[i];  
+      if (frequency[i] > max || (frequency[i] == max && (char) ('a' + i) < mostChar)) {
+        mostChar = (char) ('a' + i);  
+        max = frequency[i];  
       }
     }
-    decodedMessage += mostFrequentChar;  
+    message += mostChar;  
     }
-  return decodedMessage;
+  return message;
   }
 }
