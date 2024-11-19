@@ -32,6 +32,7 @@ public class AdventOfCode7{
   }
 
   public static boolean evenOrNot(String[] parts){
+    boolean isABBA = false;
     for (int i = 0; i < parts.length; i++) {
       boolean isHypernet = (i % 2 != 0);
       for (int x = 0; x < parts[i].length() - 3; x++) {
@@ -40,12 +41,12 @@ public class AdventOfCode7{
           if (isHypernet) {
             return false; 
           } else {
-            return true; 
+            isABBA = true; 
           }
         }
       }
     }
-    return false;
+    return isABBA;
   }
 
   public static boolean isABBA(String segment) {
