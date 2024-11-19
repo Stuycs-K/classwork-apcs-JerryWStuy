@@ -3,50 +3,46 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class AdventOfCode6{
+  public static void main(String[] args) {
+    System.out.println(decodeMessage("Advent6.txt"));
+  }
 
-    public static void main(String[] args) {
-        String filename = "Advent6.txt";  
-        System.out.println("Error-corrected message: " + decodeMessage(filename));
+  public static String decodeMessage(String filename) {
+    String decodedMessage = "";
+    ArrayList<String> lines = new ArrayList<>();
+    try {
+      File file = new File(filename);
+      Scanner scanner = new Scanner(file);
+      
+      while (scanner.hasNextLine()) {
+        lines.add(scanner.nextLine());
+      }
+      scanner.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("File not found");
+      return "";
     }
 
-    public static String decodeMessage(String filename) {
-        StringBuilder decodedMessage = new StringBuilder();
-        List<String> lines = new ArrayList<>();
-        try {
-            File file = new File(filename);
-            Scanner scanner = new Scanner(file);
-            
-            while (scanner.hasNextLine()) {
-                lines.add(scanner.nextLine());
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + filename);
-            return "";
-        }
-        int numColumns = lines.get(0).length();
-        for (int col = 0; col < numColumns; col++) {
-            Map<Character, Integer> frequencyMap = new HashMap<>();
-            for (String line : lines) {
-                char c = line.charAt(col);
-                frequencyMap.put(c, frequencyMap.getOrDefault(c, 0) + 1);
-            }
-            char mostFrequentChar = findMostFrequentCharacter(frequencyMap);
-            decodedMessage.append(mostFrequentChar);
-        }
-        return decodedMessage.toString();
+  int numColumns = lines.get(0).length(); 
+  for (int col = 0; col < numColumns; col++) {
+    int[] frequency = new int[26];
+
+    for (String line : lines) {
+      char c = line.charAt(col);  
+      frequency[c - 'a']++;
     }
-    public static char findMostFrequentCharacter(Map<Character, Integer> frequencyMap) {
-        char mostFrequentChar = '\0';
-        int maxFrequency = -1;
-        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
-            char c = entry.getKey();
-            int frequency = entry.getValue();
-            if (frequency > maxFrequency || (frequency == maxFrequency && c < mostFrequentChar)) {
-                mostFrequentChar = c;
-                maxFrequency = frequency;
-            }
-        }
-        return mostFrequentChar;
+
+    char mostFrequentChar = 'a';  
+    int maxFrequency = frequency[0]; 
+
+    for (int i = 0; i < 26; i++) {  
+      if (frequency[i] > maxFrequency || (frequency[i] == maxFrequency && (char) ('a' + i) < mostFrequentChar)) {
+        mostFrequentChar = (char) ('a' + i);  
+        maxFrequency = frequency[i];  
+      }
     }
+    decodedMessage += mostFrequentChar;  
+  }
+  return decodedMessage;
+  }
 }
