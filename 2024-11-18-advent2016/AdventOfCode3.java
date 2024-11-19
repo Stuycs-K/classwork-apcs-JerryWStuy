@@ -6,9 +6,8 @@ import java.util.Scanner;
 
 public class AdventOfCode3{
   public static void main(String[] args){
-    System.out.println(countTrianglesA("Advent.txt"));
-    System.out.println(countTrianglesB("Advent.txt"));
-    System.out.println(countTrianglesWithX("inputTriWithX.txt"));
+    System.out.println(countTrianglesA("Advent3.txt"));
+    System.out.println(countTrianglesB("Advent3.txt"));
    }
 
 

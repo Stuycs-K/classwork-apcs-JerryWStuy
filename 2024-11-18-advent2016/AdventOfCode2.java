@@ -65,7 +65,7 @@ public class AdventOfCode2 {
         {null, "A", "B", "C", null},
         {null, null, "D", null, null}
     };
-    int currentRow = 2; // Starting at the '5'
+    int currentRow = 2; 
     int currentCol = 0;
     String code = "";
 
