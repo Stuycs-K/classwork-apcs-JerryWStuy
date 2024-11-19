@@ -14,21 +14,21 @@ public class AdventOfCode4 {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                
+
                 String[] parts = line.split("-");
                 String sectorCheck = parts[parts.length - 1];
                 int sectorID = Integer.parseInt(sectorCheck.substring(0,3));
                 String checksum = sectorCheck.substring(4,9);
-                
+
                 String name = "";
                     for (int i = 0; i < parts.length - 1; i++) {
-                        name += parts[i];  
+                        name += parts[i];
                 }
                 if (isRealRoom(name, checksum)) {
                     if (decryptRoomName(name, sectorID).contains("north")){
                         System.out.println(decryptRoomName(name, sectorID) + " " + sectorID);
                     }
-                    sum += sectorID;  
+                    sum += sectorID;
                 }
             }
             scanner.close();
@@ -39,25 +39,24 @@ public class AdventOfCode4 {
     }
 
     public static boolean isRealRoom(String name, String checksum) {
-        int[] frequency = new int[26];  
+        int[] frequency = new int[26];
         for (int i = 0; i < name.length(); i++) {
             char c = name.charAt(i);
             frequency[c - 'a']++;
         }
-    
+
         char[] letters = new char[26];
-        int[] counts = new int[26];
         for (int i = 0; i < 26; i++) {
-            letters[i] = (char) ('a' + i);  
-            counts[i] = frequency[i];  
+            letters[i] = (char) ('a' + i);
+            frequency[i] = frequency[i];
         }
-    
-        for (int i = 0; i < 25; i++) {  
+
+        for (int i = 0; i < 5; i++) {
             for (int j = i + 1; j < 26; j++) {
-                if (counts[i] < counts[j] || (counts[i] == counts[j] && letters[i] > letters[j])) {
-                    int tempCount = counts[i];
-                    counts[i] = counts[j];
-                    counts[j] = tempCount;
+                if (frequency[i] < frequency[j] || (frequency[i] == frequency[j] && letters[i] > letters[j])) {
+                    int tempCount = frequency[i];
+                    frequency[i] = frequency[j];
+                    frequency[j] = tempCount;
                     char tempChar = letters[i];
                     letters[i] = letters[j];
                     letters[j] = tempChar;
@@ -66,7 +65,7 @@ public class AdventOfCode4 {
         }
         String calculatedSum = "";
         for (int i = 0; i < 5; i++) {
-            calculatedSum += letters[i];  
+            calculatedSum += letters[i];
         }
         return calculatedSum.equals(checksum);
     }
