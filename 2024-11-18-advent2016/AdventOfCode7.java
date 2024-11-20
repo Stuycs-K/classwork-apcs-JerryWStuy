@@ -86,8 +86,8 @@ public class AdventOfCode7{
         String segment = parts[i].substring(x, x + 3);
         if (isItABA(segment)) {
           String segmentBackwards = segment.substring(1,2) + segment.substring(0,1) + segment.substring(1,2);
-          for (int j = 1; j < parts.length; j += 2) {  
-            if (parts[j].contains(segmentBackwards)) {
+          for (int y = 1; y < parts.length; y += 2) {  
+            if (parts[y].contains(segmentBackwards)) {
               return true;  
             }
           }
