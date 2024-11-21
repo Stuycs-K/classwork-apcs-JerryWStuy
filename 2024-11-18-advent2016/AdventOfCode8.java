@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.Array;
 import java.util.*;
 
 public class AdventOfCode8{
@@ -17,6 +18,12 @@ public class AdventOfCode8{
           rectangleShift(arr, line);
         }
         scanner.close();
+        for (int x = 0; x < 6; x++) {
+          for (int y = 0; y < 50; y++){
+            System.out.printf(arr[x][y] + " ");
+          }
+          System.out.println();
+        }
         return rectangle(arr);
       }
     catch (FileNotFoundException e) {
