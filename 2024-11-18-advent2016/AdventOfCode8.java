@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.Array;
 import java.util.*;
 
 public class AdventOfCode8{
