@@ -34,7 +34,7 @@ public class AdventOfCode9{
           entireString += scanner.nextLine();
         }
         scanner.close();
-        return actualDecompressedLengthTwo(entireString);
+        return actualDecompressedLengthTwo(entireString, 0, entireString.length());
       }
     catch (FileNotFoundException e) {
       System.out.println("File not found");
@@ -63,11 +63,11 @@ public class AdventOfCode9{
     return length;
   }
 
-  public static long actualDecompressedLengthTwo(String entireString) {
+  public static long actualDecompressedLengthTwo(String entireString, int start, int end) {
     long length = 0;
-    int i = 0;
+    int i = start;
 
-    while (i < entireString.length()) {
+    while (i < end) {
         char current = entireString.charAt(i);
         if (current == '(') {
             int closingParentheses = entireString.indexOf(')', i);
@@ -78,7 +78,7 @@ public class AdventOfCode9{
 
             int newMarkerStart = closingParentheses + 1;
             int newMarkerEnd = newMarkerStart + numChars;
-            long decompressedLength = actualDecompressedLengthTwo(entireString);
+            long decompressedLength = actualDecompressedLengthTwo(entireString, newMarkerStart, newMarkerEnd);
             length += decompressedLength * repeatCount;
             i = newMarkerEnd;
         } else {
