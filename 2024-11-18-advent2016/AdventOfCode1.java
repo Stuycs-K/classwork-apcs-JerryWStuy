@@ -74,8 +74,7 @@ public class AdventOfCode1{
             } else {
                 direction = direction % 4;
             }
-            String result = movement.replace(",", "");
-            int steps = Integer.parseInt(result.substring(1, result.length()));
+            int steps = Integer.parseInt(movement.substring(1, movement.length()-1));
             for (int i = 0; i < steps; i++) {
                 if (direction == 0) {
                     distanceUp++;
@@ -90,8 +89,10 @@ public class AdventOfCode1{
                 if (visitedLocations.contains(currentLocation)) {
                     input.close();
                     return Math.abs(distanceRight) + Math.abs(distanceUp);
+                } 
+                else{
+                  visitedLocations.add(currentLocation);
                 }
-                visitedLocations.add(currentLocation);
             }
         }
         input.close();
@@ -99,5 +100,5 @@ public class AdventOfCode1{
         System.out.println("File not found");
     }
     return -1;
-} 
+  } 
 }
