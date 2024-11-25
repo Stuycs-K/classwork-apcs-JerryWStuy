@@ -25,6 +25,7 @@ public class AdventOfCode12{
     }
     public static int executeAssembunny(ArrayList<String> instructions) {
         int[] registers = new int[4];
+        registers[2] = 1;
         int i = 0;
         while (i < instructions.size()) {
             String[] parts = instructions.get(i).split(" ");
