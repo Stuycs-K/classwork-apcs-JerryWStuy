@@ -47,12 +47,10 @@ public class AdventOfCode3{
       increment++;
     }
     input.close();
-    // Check if the lengths form a triangle
     return (a + b > c) && (a + c > b) && (b + c > a);
   }
 
   public static boolean triangleExist(int a, int b, int c) {
-    // Check if the lengths form a triangle
     return (a + b > c) && (a + c > b) && (b + c > a);
   }
 

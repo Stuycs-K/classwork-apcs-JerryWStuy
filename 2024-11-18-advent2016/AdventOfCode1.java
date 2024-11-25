@@ -58,7 +58,7 @@ public class AdventOfCode1{
     int distanceUp = 0;
     int direction = 0;
     Set<String> visitedLocations = new HashSet<>();
-    visitedLocations.add(distanceRight + "," + distanceUp);
+    visitedLocations.add(0 + "," + 0);
     try {
         File file = new File(filename);
         Scanner input = new Scanner(file);
@@ -74,8 +74,8 @@ public class AdventOfCode1{
             } else {
                 direction = direction % 4;
             }
-            int steps = Integer.parseInt(movement.substring(1, movement.length()-1));
-            for (int i = 0; i < steps; i++) {
+            int result = Integer.parseInt(movement.substring(1, movement.length()-1));
+            for (int i = 0; i < result; i++) {
                 if (direction == 0) {
                     distanceUp++;
                 } else if (direction == 1) {
