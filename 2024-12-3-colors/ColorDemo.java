@@ -23,11 +23,11 @@ public class ColorDemo{
     System.out.println("Reset background to default.");
     System.out.println("\u001b[1m");
     System.out.println("This is bolded text.");
-    System.out.println(CLEAR_COLOR);
     System.out.println(HIDE_CURSOR);
     System.out.println("Now your cursor is gone");
     System.out.println(SHOW_CURSOR);
     System.out.println("Now your cursor is back");
+    System.out.println(CLEAR_COLOR);
   }
 
   public static void color(int foreground,int background){
