@@ -9,6 +9,9 @@ public class Driver {
         System.out.println("Special stacks(" + Furina.getSpecialName() + "): " + Furina.getSpecial());
         Furina.restoreSpecial(50);
         System.out.println("Special stacks (" + Furina.getSpecialName() + ") after restoring: " + Furina.getSpecial());
+        Furina.setSpecial(150);
+        System.out.println("Special stacks (" + Furina.getSpecialName() + ") after setting: " + Furina.getSpecial());
+
 
         System.out.println(Furina.support());
         System.out.println("HP after support: " + Furina.getHP());

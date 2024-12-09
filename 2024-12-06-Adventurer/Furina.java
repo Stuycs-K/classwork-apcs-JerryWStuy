@@ -42,7 +42,7 @@ public class Furina extends Adventurer {
     }
 
     public String attack(Adventurer other){
-        other.setHP(other.getHP()- damage);
+        other.applyDamage(damage);
         return (other.getName() + " just took " + damage + " damage from a normal attack.");
     }
     
@@ -58,7 +58,7 @@ public class Furina extends Adventurer {
     }
 
     public String specialAttack(Adventurer other){
-        other.setHP(other.getHP()- damage*5);
+        other.applyDamage(damage*5);
         return (other.getName() + " just took " + damage*5 + " damage from a bubble attack.");
     }
 }
