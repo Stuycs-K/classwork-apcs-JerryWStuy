@@ -42,10 +42,11 @@ public class Furina extends Adventurer {
     }
 
     public String attack(Adventurer other){
+        other.applyDamage(damage);
         other.setHP(other.getHP()- damage);
         return (other.getName() + " just took " + damage + " damage from a normal attack.");
     }
-    
+
     public String support(Adventurer other){
         this.setHP(this.getHP()-5);
         other.setHP(other.getHP()+fanfareStacks*10);
