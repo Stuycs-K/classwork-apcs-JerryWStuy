@@ -4,11 +4,11 @@ public class Furina extends Adventurer {
     private int damage = 0;
 
     public Furina(String name){
-        super("Furina");
+        super(name);
         nickname = name;
     }
     public Furina(String name, int hp){
-        super("Furina",hp);
+        super(name,hp);
         nickname = name;
     }
 
@@ -36,8 +36,8 @@ public class Furina extends Adventurer {
     public int getSpecialMax(){
         return 400;
     }
-    @Override
-    public String getName(){
+
+    public String getNickame(){
         return("My name is Furina, also known as Focalors. My nickname is: " + nickname);
     }
 
