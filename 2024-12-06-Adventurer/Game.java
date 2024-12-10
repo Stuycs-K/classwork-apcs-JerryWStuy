@@ -11,7 +11,7 @@ public class Game {
     System.out.println("Username is: " + userName);
 
     Furina Furina = new Furina("My Furina", 1000);
-    Furina CodeWarrior = new Furina("Their CodeWarrior", 1000);
+    CodeWarrior CodeWarrior = new CodeWarrior("Their CodeWarrior", 1000);
     while (CodeWarrior.getHP() > 0 && Furina.getHP() > 0){
       System.out.println("Enter the move you want to do");
       System.out.println("Type: (a)ttack / (sp)ecial / (su)pport / quit");

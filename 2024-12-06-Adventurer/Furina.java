@@ -1,7 +1,7 @@
 public class Furina extends Adventurer {
     private String nickname = "";
     private int fanfareStacks = 0;
-    private int damage = 0;
+    private int damage = 10;
 
     public Furina(String name){
         super(name);
@@ -17,7 +17,7 @@ public class Furina extends Adventurer {
                 n = getSpecialMax() - getSpecial();
         }
         setSpecial(getSpecial()+n);
-        damage = fanfareStacks * 2;
+        damage = 10 * fanfareStacks / 2;
         return n;
     }
 
@@ -54,6 +54,7 @@ public class Furina extends Adventurer {
 
     public String support(){
         this.setHP(this.getHP()+fanfareStacks*10);
+        restoreSpecial(5);
         return("Healed myself for " + fanfareStacks*10 + "hp.");
     }
 
