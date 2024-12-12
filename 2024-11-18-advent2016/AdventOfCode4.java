@@ -48,7 +48,6 @@ public class AdventOfCode4 {
         char[] letters = new char[26];
         for (int i = 0; i < 26; i++) {
             letters[i] = (char) ('a' + i);
-            frequency[i] = frequency[i];
         }
 
         for (int i = 0; i < 5; i++) {

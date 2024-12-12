@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class TriangleTester{
   public static void main(String[] args){
-    System.out.println(countTrianglesA("inputTri.txt"));
-    System.out.println(countTrianglesB("inputTri.txt"));
+    System.out.println(countTrianglesA("Advent.txt"));
+    System.out.println(countTrianglesB("Advent.txt"));
     System.out.println(countTrianglesWithX("inputTriWithX.txt"));
    }
 
@@ -21,18 +21,18 @@ public class TriangleTester{
       while (input.hasNextLine()){
         String lengths = input.nextLine();
         if (triangleExist(lengths)){
-          temp++; 
+          temp++;
         }
       }
       input.close();
-    } 
+    }
     catch (FileNotFoundException ex) {
       System.out.println("File not found");
     }
-    return temp; 
+    return temp;
    }
 
-   
+
   public static boolean triangleExist(String lengths) {
     int a = 0, b = 0, c = 0;
     int increment = 0;
@@ -47,7 +47,7 @@ public class TriangleTester{
       }
       increment++;
     }
-    input.close(); 
+    input.close();
     // Check if the lengths form a triangle
     return (a + b > c) && (a + c > b) && (b + c > a);
   }
@@ -67,7 +67,7 @@ public class TriangleTester{
     ArrayList<Integer> column1 = new ArrayList<>();
     ArrayList<Integer> column2 = new ArrayList<>();
     ArrayList<Integer> column3 = new ArrayList<>();
-        
+
     while (input.hasNextLine()) {
       Scanner lineScanner = new Scanner(input.nextLine());
       if (lineScanner.hasNextInt()) {
@@ -103,7 +103,7 @@ public class TriangleTester{
         temp++;
       }
     }
-  } 
+  }
   catch (FileNotFoundException ex) {
     System.out.println("File not found");
   }
@@ -123,16 +123,15 @@ public class TriangleTester{
           numsAsInt[i] = Integer.parseInt(nums[i]);
         }
         if (triangleExist(numsAsInt[0],numsAsInt[1],numsAsInt[2])){
-          temp++; 
+          temp++;
         }
       }
       input.close();
-    } 
+    }
     catch (FileNotFoundException ex) {
       System.out.println("File not found");
     }
-    return temp; 
+    return temp;
   }
 
 }
-
