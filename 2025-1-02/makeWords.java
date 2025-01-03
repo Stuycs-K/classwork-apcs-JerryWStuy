@@ -1,14 +1,6 @@
-public class fib{
+public class makeWords{
   public static void main(String[] args) {
-    makeWords(3,"","abc");
-  }
-  public static int fib(int n){
-    if (n == 1 || n == 2){
-      return 1;
-    }
-    else{
-      return fib(n-1) + fib(n-2);
-    }
+    makeWords(4,"","abc");
   }
   public static void makeWords(int remainingLetters, String result, String alphabet){
     if (remainingLetters == 0){
